@@ -1,620 +1,430 @@
 <!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siddharth Singh — Senior Backend Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;
+  --bg2:#f8f7f4;
+  --bg3:#f0ede8;
+  --border:#e5e2dc;
+  --border2:#ccc9c2;
+  --text:#1a1917;
+  --text2:#5a5650;
+  --text3:#9a9690;
+  --accent:#1a4fd6;
+  --accent-light:#eef2ff;
+  --green:#0f7a4a;
+  --green-light:#e8f5ee;
+  --font:'Plus Jakarta Sans',sans-serif;
+  --serif:'Lora',serif;
+  --r:10px;--rs:6px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.65}
 
-   <!--- Basic Page Needs
-   ================================================== -->
-   <meta charset="utf-8">
-	<title>Siddharth Singh</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:58px;
+}
+.nav-left{display:flex;align-items:center;gap:1.5rem}
+.nav-name{font-weight:700;font-size:.9rem;color:var(--text);letter-spacing:-.01em}
+.nav-badge{
+  display:flex;align-items:center;gap:.4rem;
+  background:var(--green-light);color:var(--green);
+  font-size:.7rem;font-weight:600;
+  padding:.28rem .7rem;border-radius:2rem;
+  border:1px solid rgba(15,122,74,.15);
+}
+.ndot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:p 2s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#fff;padding:.45rem 1.1rem;border-radius:2rem;font-size:.8rem;font-weight:600;text-decoration:none;transition:opacity .15s}
+.nav-cta:hover{opacity:.85}
 
-   <!-- Mobile Specific Metas
-   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+.hero{max-width:1040px;margin:0 auto;padding:4.5rem 2.5rem 3.5rem;display:grid;grid-template-columns:1fr 230px;gap:3.5rem;align-items:start}
+.hero-eye{display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem}
+.eye-tag{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+.eye-sep{width:2rem;height:1px;background:var(--border2)}
+.eye-loc{font-size:.72rem;color:var(--text3);font-weight:500}
+h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.1rem}
+.hero-sub{font-size:1rem;color:var(--text2);max-width:500px;line-height:1.7;margin-bottom:1.75rem}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2rem}
+.btn-p{background:var(--accent);color:#fff;padding:.65rem 1.4rem;border-radius:2rem;font-weight:600;font-size:.85rem;text-decoration:none;transition:opacity .15s,transform .15s}
+.btn-p:hover{opacity:.87;transform:translateY(-1px)}
+.btn-o{border:1.5px solid var(--border2);color:var(--text2);padding:.6rem 1.3rem;border-radius:2rem;font-weight:500;font-size:.82rem;text-decoration:none;transition:all .15s}
+.btn-o:hover{border-color:var(--text2);color:var(--text)}
+.relo-box{background:var(--accent-light);border:1px solid rgba(26,79,214,.18);border-radius:var(--r);padding:.9rem 1.1rem}
+.relo-title{font-size:.7rem;font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.3rem}
+.relo-text{font-size:.82rem;color:#1a3a8a;line-height:1.5}
 
-	<!-- CSS
-    ================================================== -->
-   <link rel="stylesheet" href="css/default.css">
-	<link rel="stylesheet" href="css/layout.css">
-   <link rel="stylesheet" href="css/media-queries.css">
-   <link rel="stylesheet" href="css/magnific-popup.css">
+.hcard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.35rem}
+.hc-av{width:46px;height:46px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:#fff;margin-bottom:.9rem}
+.hc-name{font-weight:700;font-size:.92rem;margin-bottom:.15rem}
+.hc-role{font-size:.75rem;color:var(--text2);margin-bottom:.9rem}
+.hc-row{display:flex;align-items:center;gap:.45rem;font-size:.74rem;color:var(--text2);margin-bottom:.38rem}
+.hc-ico{font-size:.65rem;color:var(--text3);min-width:.8rem}
+.hc-div{height:1px;background:var(--border);margin:.85rem 0}
+.hc-stat-num{font-size:1.5rem;font-weight:700;color:var(--text);letter-spacing:-.03em;text-align:center}
+.hc-stat-lab{font-size:.68rem;color:var(--text3);text-align:center;margin-top:.1rem}
 
-   <!-- Script
-   ================================================== -->
-	<script src="js/modernizr.js"></script>
+.metrics{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.75rem 2.5rem}
+.met-in{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center}
+.met-num{font-size:1.9rem;font-weight:700;color:var(--accent);letter-spacing:-.03em;line-height:1}
+.met-lab{font-size:.73rem;color:var(--text2);margin-top:.3rem;font-weight:500}
+.met-sub{font-size:.68rem;color:var(--text3);margin-top:.1rem}
 
-   <!-- Favicons
-	================================================== -->
-	<link rel="shortcut icon" href="favicon.png" >
+.sec{max-width:1040px;margin:0 auto;padding:4rem 2.5rem}
+.sec-hd{display:flex;align-items:baseline;gap:.75rem;margin-bottom:2rem;padding-bottom:.85rem;border-bottom:1px solid var(--border)}
+.sec-title{font-size:1.1rem;font-weight:700;letter-spacing:-.015em}
+.sec-ct{font-size:.72rem;color:var(--text3);font-weight:500}
 
+.skills-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.sk-bl{background:var(--bg);padding:1.35rem;transition:background .15s}
+.sk-bl:hover{background:var(--bg2)}
+.sk-cat{font-size:.67rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:.65rem}
+.sk-pills{display:flex;flex-wrap:wrap;gap:.3rem}
+.pill{font-size:.73rem;font-weight:500;background:var(--bg2);border:1px solid var(--border);color:var(--text2);padding:.18rem .55rem;border-radius:var(--rs)}
+
+.exp-list{display:flex;flex-direction:column}
+.exp-e{display:grid;grid-template-columns:190px 1fr;gap:2.5rem;padding:2.25rem 0;border-bottom:1px solid var(--border)}
+.exp-e:last-child{border-bottom:none}
+.exp-co{font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:.2rem}
+.exp-dt{font-size:.72rem;color:var(--text3);margin-bottom:.15rem}
+.exp-lo{font-size:.7rem;color:var(--text3)}
+.exp-role{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.75rem;letter-spacing:-.01em}
+.exp-pts{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.exp-pts li{font-size:.85rem;color:var(--text2);line-height:1.65;padding-left:1rem;position:relative}
+.exp-pts li::before{content:'–';position:absolute;left:0;color:var(--text3)}
+.exp-pts b{color:var(--text);font-weight:600}
+.tech-r{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.85rem}
+.tt{font-size:.66rem;font-weight:600;background:var(--bg2);border:1px solid var(--border);color:var(--accent);padding:.16rem .5rem;border-radius:var(--rs);letter-spacing:.02em}
+
+.elig-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.elig-inner{max-width:1040px;margin:0 auto;padding:4rem 2.5rem}
+.elig-desc{font-size:.88rem;color:var(--text2);max-width:580px;margin-bottom:1.5rem;line-height:1.65}
+.elig-g{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.elig-c{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.15rem;display:flex;gap:.7rem;align-items:flex-start}
+.elig-ic{width:30px;height:30px;flex-shrink:0;border-radius:var(--rs);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700}
+.elig-ic.y{background:var(--green-light);color:var(--green)}
+.elig-ic.i{background:var(--accent-light);color:var(--accent)}
+.elig-lab{font-size:.7rem;font-weight:700;color:var(--text);margin-bottom:.1rem}
+.elig-val{font-size:.74rem;color:var(--text2);line-height:1.45}
+
+.proj-g{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem}
+.proj-c{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.35rem;transition:border-color .15s,transform .15s}
+.proj-c:hover{border-color:var(--border2);transform:translateY(-2px)}
+.proj-lab{font-size:.67rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text3);margin-bottom:.5rem}
+.proj-name{font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:.4rem}
+.proj-desc{font-size:.8rem;color:var(--text2);line-height:1.6;margin-bottom:.9rem}
+.proj-ft{display:flex;align-items:center;justify-content:space-between}
+.proj-tags{display:flex;gap:.3rem;flex-wrap:wrap}
+.proj-tag{font-size:.63rem;color:var(--text3);background:var(--bg2);border:1px solid var(--border);padding:.14rem .42rem;border-radius:4px}
+.proj-lnk{font-size:.73rem;font-weight:600;color:var(--accent);text-decoration:none}
+.proj-lnk:hover{text-decoration:underline}
+
+.res-c{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.35rem 1.6rem;display:flex;gap:1.25rem;align-items:flex-start}
+.res-badge{width:38px;height:38px;flex-shrink:0;background:var(--accent-light);border:1px solid rgba(26,79,214,.15);border-radius:var(--rs);display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;color:var(--accent);letter-spacing:.03em}
+.res-title{font-weight:600;font-size:.9rem;color:var(--text);margin-bottom:.3rem;line-height:1.4}
+.res-meta{font-size:.75rem;color:var(--text3)}
+.res-meta a{color:var(--accent);text-decoration:none}
+
+.ach-list{display:flex;flex-direction:column;gap:.65rem}
+.ach-i{display:flex;gap:1.1rem;align-items:flex-start;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem 1.35rem;transition:border-color .15s}
+.ach-i:hover{border-color:var(--border2)}
+.ach-n{font-size:1.35rem;font-weight:600;color:var(--border2);line-height:1;min-width:1.75rem;font-family:var(--serif);font-style:italic}
+.ach-title{font-weight:700;font-size:.88rem;color:var(--text);margin-bottom:.2rem}
+.ach-desc{font-size:.8rem;color:var(--text2);line-height:1.5;margin-bottom:.5rem}
+.ach-links{display:flex;gap:.45rem;flex-wrap:wrap}
+.ach-lnk{font-size:.68rem;font-weight:600;color:var(--text2);text-decoration:none;border:1px solid var(--border);padding:.15rem .55rem;border-radius:2rem;transition:all .15s}
+.ach-lnk:hover{color:var(--accent);border-color:var(--accent)}
+
+.edu-list{display:flex;flex-direction:column}
+.edu-i{display:grid;grid-template-columns:150px 1fr;gap:2rem;padding:1.6rem 0;border-bottom:1px solid var(--border)}
+.edu-i:last-child{border-bottom:none}
+.edu-yr{font-size:.73rem;color:var(--text3);font-weight:500;padding-top:.15rem}
+.edu-school{font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:.18rem}
+.edu-deg{font-size:.82rem;color:var(--text2);margin-bottom:.18rem}
+.edu-grade{font-size:.75rem;font-weight:600;color:var(--accent)}
+
+.contact-g{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.contact-head{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:.6rem}
+.contact-sub{font-size:.88rem;color:var(--text2);margin-bottom:1.75rem;line-height:1.6}
+.clinks{display:flex;flex-direction:column;gap:.55rem}
+.cl{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--text2);font-size:.82rem;font-weight:500;padding:.65rem .9rem;border:1px solid var(--border);border-radius:var(--rs);transition:all .15s}
+.cl:hover{color:var(--text);border-color:var(--border2);background:var(--bg2)}
+.cl-ico{font-size:.7rem;min-width:.9rem;color:var(--text3)}
+.cdet{display:flex;flex-direction:column;gap:.65rem}
+.cd{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rs);padding:.85rem 1.1rem}
+.cd-lab{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:.25rem}
+.cd-val{font-size:.84rem;color:var(--text);font-weight:500}
+.cd-val a{color:var(--accent);text-decoration:none}
+.cd-val a:hover{text-decoration:underline}
+
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.25rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
+.fc{font-size:.72rem;color:var(--text3)}
+.flinks{display:flex;gap:1.1rem}
+.flinks a{font-size:.72rem;color:var(--text3);text-decoration:none}
+.flinks a:hover{color:var(--accent)}
+
+@media(max-width:800px){
+  nav{padding:0 1.25rem}
+  .nav-links,.nav-badge{display:none}
+  .hero{grid-template-columns:1fr;padding:3rem 1.25rem 2rem;gap:1.75rem}
+  .hcard{width:100%}
+  .metrics{padding:1.5rem 1.25rem}
+  .met-in{grid-template-columns:repeat(2,1fr)}
+  .sec{padding:3rem 1.25rem}
+  .skills-g{grid-template-columns:1fr 1fr}
+  .exp-e{grid-template-columns:1fr;gap:.85rem}
+  .elig-g{grid-template-columns:1fr 1fr}
+  .proj-g{grid-template-columns:1fr}
+  .contact-g{grid-template-columns:1fr}
+  .edu-i{grid-template-columns:1fr;gap:.4rem}
+  footer{flex-direction:column;gap:.6rem;padding:1rem 1.25rem;text-align:center}
+}
+@media(max-width:480px){
+  .skills-g{grid-template-columns:1fr}
+  .elig-g{grid-template-columns:1fr}
+}
+</style>
 </head>
-
 <body>
 
-   <!-- Header
-   ================================================== -->
-   <header id="home">
+<nav>
+  <div class="nav-left">
+    <span class="nav-name">Siddharth Singh</span>
+    <span class="nav-badge"><span class="ndot"></span>Open to relocation · Europe</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#eligibility">Work Eligibility</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:siddharthsingh16aug@gmail.com">Get in touch</a>
+</nav>
 
-      <nav id="nav-wrap">
+<div class="hero">
+  <div>
+    <div class="hero-eye">
+      <span class="eye-tag">Senior Backend Engineer</span>
+      <span class="eye-sep"></span>
+      <span class="eye-loc">New Delhi, India · Open to Europe</span>
+    </div>
+    <h1>Siddharth Singh</h1>
+    <p class="hero-sub">5+ years building high-throughput distributed systems in Go — Kafka pipelines, real-time microservices, and cloud infrastructure at scale. Currently Engineering Lead at Pluang. Seeking Senior / Staff roles in Europe.</p>
+    <div class="hero-btns">
+      <a class="btn-p" href="mailto:siddharthsingh16aug@gmail.com">Contact me</a>
+      <a class="btn-o" href="https://www.linkedin.com/in/siddharth-singh-67261314a/" target="_blank">LinkedIn ↗</a>
+      <a class="btn-o" href="https://github.com/Siddharth-Singhs/" target="_blank">GitHub ↗</a>
+    </div>
+    <div class="relo-box">
+      <div class="relo-title">Relocation &amp; availability</div>
+      <div class="relo-text">Actively seeking opportunities in Europe — Germany, Netherlands, UK, Ireland, Nordic countries. Open to visa-sponsored roles. Available to relocate within 4–8 weeks of offer.</div>
+    </div>
+  </div>
+  <div class="hcard">
+    <div class="hc-av">SS</div>
+    <div class="hc-name">Siddharth Singh</div>
+    <div class="hc-role">Engineering Lead · Pluang</div>
+    <div class="hc-row"><span class="hc-ico">📍</span>New Delhi, India</div>
+    <div class="hc-row"><span class="hc-ico">🎓</span>B.E. Eng. Physics, DTU</div>
+    <div class="hc-row"><span class="hc-ico">🌐</span>English — Professional fluency</div>
+    <div class="hc-row"><span class="hc-ico">✈</span>Open to relocation</div>
+    <div class="hc-div"></div>
+    <div class="hc-stat-num">5+</div>
+    <div class="hc-stat-lab">Years of experience</div>
+  </div>
+</div>
 
-         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+<div class="metrics">
+  <div class="met-in">
+    <div><div class="met-num">60–70%</div><div class="met-lab">Kafka payload reduction</div><div class="met-sub">Protobuf over JSON</div></div>
+    <div><div class="met-num">4×</div><div class="met-lab">Store scouting speed</div><div class="met-sub">Geo automation tool</div></div>
+    <div><div class="met-num">90%</div><div class="met-lab">Manual ops eliminated</div><div class="met-sub">Location feasibility</div></div>
+    <div><div class="met-num">60%</div><div class="met-lab">Cert tooling load cut</div><div class="met-sub">Internal platform, Go</div></div>
+  </div>
+</div>
 
-         <ul id="nav" class="nav">
-            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
-            <li><a class="smoothscroll" href="#about">About</a></li>
-	         <li><a class="smoothscroll" href="#resume">Resume</a></li>
-            <li><a class="smoothscroll" href="#portfolio">Projects</a></li>
-            <li><a class="smoothscroll" href="#contact">Contact</a></li>
-         </ul> <!-- end #nav -->
+<div class="sec" id="skills">
+  <div class="sec-hd"><span class="sec-title">Technical Skills</span></div>
+  <div class="skills-g">
+    <div class="sk-bl"><div class="sk-cat">Languages</div><div class="sk-pills"><span class="pill">Go (Golang)</span><span class="pill">Java</span><span class="pill">Kotlin</span><span class="pill">Python</span><span class="pill">SQL</span></div></div>
+    <div class="sk-bl"><div class="sk-cat">Distributed Systems</div><div class="sk-pills"><span class="pill">Apache Kafka</span><span class="pill">Protobuf</span><span class="pill">Redis</span><span class="pill">gRPC</span><span class="pill">Trino</span></div></div>
+    <div class="sk-bl"><div class="sk-cat">Backend Frameworks</div><div class="sk-pills"><span class="pill">Spring Boot</span><span class="pill">REST APIs</span><span class="pill">Microservices</span><span class="pill">Event-Driven</span></div></div>
+    <div class="sk-bl"><div class="sk-cat">Databases</div><div class="sk-pills"><span class="pill">PostgreSQL</span><span class="pill">MySQL</span><span class="pill">Redis Vector Search</span></div></div>
+    <div class="sk-bl"><div class="sk-cat">Cloud &amp; Infrastructure</div><div class="sk-pills"><span class="pill">AWS</span><span class="pill">GCP</span><span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">Grafana</span><span class="pill">Prometheus</span></div></div>
+    <div class="sk-bl"><div class="sk-cat">Patterns &amp; Practices</div><div class="sk-pills"><span class="pill">CQRS</span><span class="pill">DDD</span><span class="pill">CI/CD</span><span class="pill">System Design</span><span class="pill">LLM Integration</span></div></div>
+  </div>
+</div>
 
-      </nav> <!-- end #nav-wrap -->
+<div class="sec" id="experience" style="padding-top:0">
+  <div class="sec-hd"><span class="sec-title">Work Experience</span><span class="sec-ct">5 roles · 5 years</span></div>
+  <div class="exp-list">
 
-      <div class="row banner">
-         <div class="banner-text">
-            <h1 class="responsive-headline">I'm Siddharth Singh.</h1>
-            <hr />
-            <ul class="social">
-               <li><a href="https://github.com/Siddharth-Singhs/"><i class="fa fa-github"></i></a></li>
-               <li><a href="https://www.linkedin.com/in/siddharth-singh-67261314a/"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="https://www.facebook.com/siddharth.c.singh"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="https://twitter.com/sid_knight_dark/"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="https://www.instagram.com/siddharth_singh_s/"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-         </div>
+    <div class="exp-e">
+      <div><div class="exp-co">Pluang</div><div class="exp-dt">Jan 2026 – Present</div><div class="exp-lo">Gurugram · Fintech</div></div>
+      <div>
+        <div class="exp-role">Engineering Lead</div>
+        <ul class="exp-pts">
+          <li><b>Kafka optimization:</b> Replaced JSON with Protobuf for USA stock pricing tick data. Achieved 60–70% per-message payload reduction. Designed backward-compatible schemas enabling zero-downtime evolution under peak trading loads.</li>
+          <li><b>News processing engine:</b> Real-time financial news ingestion from multiple providers. LLM integration to cluster articles by ticker and generate summaries. Embeddings stored in Redis Vector Search for semantic retrieval.</li>
+        </ul>
+        <div class="tech-r"><span class="tt">Go</span><span class="tt">Kafka</span><span class="tt">Protobuf</span><span class="tt">Redis Vector Search</span><span class="tt">LLM APIs</span><span class="tt">PostgreSQL</span></div>
       </div>
+    </div>
 
-      <p class="scrolldown">
-         <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
-      </p>
-
-   </header> <!-- Header End -->
-
-
-   <!-- About Section
-   ================================================== -->
-   <section id="about">
-
-      <div class="row">
-
-         <div class="three columns">
-
-            <img class="profile-pic"  src="images/profile-pic.png" alt="" />
-
-         </div>
-
-         <div class="nine columns main-col">
-
-            <h2>About Me</h2>
-
-            <p>I'm currently working as a software developer at Blinkit. Mostly my weekend revolves around reading and working on side projects. Earlier  I used to work as a freelancer at  <a href="https://www.fiverr.com/siddharthsingh6">Fiverr</a>  in my free time. But currently, I am working on my side project in my free time. If you ever need a chess opponent then you can ping me at <a href="https://www.chess.com/member/great_toad_sage">chess.com.</a> 
-            </p>
-
-            <div class="row">
-
-               <div class="columns contact-details">
-
-                  <h2>Contact Details</h2>
-                  <p class="address">
-						   <span>Siddharth Singh</span><br>
-						   <span>New Delhi</span><br>
-						   <span>+91-xxxxxxxxxx</span><br>
-                     <span>siddharthsingh16aug@gmail.com</span>
-					   </p>
-
-               </div>
-
-               <div class="columns download">
-                  <p>
-                     <a href="https://drive.google.com/open?id=1i9iwGCbETxCj_balWfhcNoR9TUi7oEW_" class="button"><i class="fa fa-download"></i>Download Resume</a>
-                  </p>
-               </div>
-
-            </div> <!-- end row -->
-
-         </div> <!-- end .main-col -->
-
+    <div class="exp-e">
+      <div><div class="exp-co">Blinkit (Zomato)</div><div class="exp-dt">Jun 2024 – Jan 2026</div><div class="exp-lo">Gurugram · Quick Commerce</div></div>
+      <div>
+        <div class="exp-role">Software Engineer II</div>
+        <ul class="exp-pts">
+          <li><b>Geolocation scouting tool:</b> Automated store location feasibility using geo APIs, logistics filters, and demand forecasting. Scouting speed improved <b>4×</b>, manual intervention reduced by <b>90%</b>.</li>
+          <li><b>Blinkit Velocity app:</b> Go microservice serving real-time brand/manufacturer sales to co-founders (Android + iOS) using Trino as OLAP engine with sub-second query latency.</li>
+          <li><b>Nexus platform:</b> Go backend + Kotlin Multiplatform mobile app monitoring Store and Cluster Manager KPIs, surfacing broken metrics and triggering corrective workflows.</li>
+        </ul>
+        <div class="tech-r"><span class="tt">Go</span><span class="tt">Trino</span><span class="tt">PostgreSQL</span><span class="tt">Kotlin Multiplatform</span><span class="tt">gRPC</span></div>
       </div>
-
-   </section> <!-- About Section End-->
-
-
-   <!-- Resume Section
-   ================================================== -->
-   <section id="resume">
-
-      <!-- Education
-      ----------------------------------------------- -->
-      <div class="row education">
-
-         <div class="three columns header-col">
-            <h1><span>Education</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3>Delhi Technological University</h3>
-                  <p class="info">B.Tech in Engineering Physics<span>&bull;</span> <em class="date">GPA 7.88</em></p>
-
-                  <p>
-                  Foundation in fundamental Physics, Electronics and Applied Physics concepts. The course includes subjects of Mathematical Physics, Quantum Mechanics and Nanostructure,Introduction of Computing,Mobile and Satellite Communication.
-			  Well versed with Data Structures and Algorithms, Database Management Systems.
-                  </p>
-
-               </div>
-
-            </div> <!-- item end -->
-
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3>Holy Convent Senior Secondary School</h3>
-                  <p class="info">Senior Secondary School in Science<span>&bull;</span> <em class="date">Percentage 89%</em></p>
-
-                  <p>
-
-                  </p>
-
-               </div>
-
-            </div> <!-- item end -->
-
-         </div> <!-- main-col end -->
-
-      </div> <!-- End Education -->
-
-
-      <!-- Work
-      ----------------------------------------------- -->
-      <div class="row work">
-
-         <div class="three columns header-col">
-            <h1><span>Experience</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-            <div class="row item">
-
-		<div class="twelve columns">
-
-                  <h3>Blinkit</h3>
-                  <p class="info">Software Development Engineer 2<span>&bull;</span> <em class="date">Jun 2024 - Present</em></p>
-                  <p>
-		     &#8226 Led <b>Locus Expansion – Geolocation Scouting Tool</b>: Developed a tool to automate location feasibility analysis using geo APIs, logistics filters, and demand forecasting to accelerate new store scouting by 3x. Integrated with dashboards and reduced manual intervention by over 60%.<br/>
-		     &#8226  Developed a Golang-based microservice for the Blinkit Velocity app (Android/iOS), enabling real-time brand/manufacturer sales visibility for co-founders using Trino + PostgreSQL, reducing reporting latency by 70%.<br/>
-		     &#8226  Designed and built Nexus, a backend system (Golang) integrated with a Kotlin Multiplatform mobile app, to track and score performance metrics of Store and Cluster Managers. Led to 15% improvement in store performance audits.<br/>
-		   </p>
-               </div>
-
-
-               <div class="twelve columns">
-
-                  <h3>Expedia Group</h3>
-                  <p class="info">Software Development Engineer 2<span>&bull;</span> <em class="date">Oct 2022 - Jun 2024</em></p>
-                  <p>
-                     &#8226 Worked with Infrastructure Team to develop a application in <b>Golang</b> over certificate management (<b>Venafi</b>) for maintaining the certificate , sending the expiry warning notification to owners and grouping them on costcenter, application and product.
-                     This internal application decreased the load of certificte management tool by <b>60%</b>. <br/>
-                     &#8226 Integrated various compute optimizer recommendation in our cloud optimization service(<b>Springboot</b>) and compared them to legacy recommendation engine. Enabled this recommendation notification for all application owner to decrease the overall monthly cost <br/>
-
-                  </p>
-                  <p class="info">Software Development Engineer 1<span>&bull;</span> <em class="date">Apr 2021 - Sept 2022</em></p>
-                  <p>
-                   &#8226 Worked with Cloud Optimization Team to develop a applicaion in <b>Springboot</b> for scanning the AWS resources(Ec2, EBS, RDS and ECS) present in different AWS Account and provide them the resource recommendation (Mathematical Model). <br/>    
-                   &#8226 Worked with Performance Engineering Team to develop a independent <b>Springboot</b> service for acting as source in Grafana, by connectiong to multiple database and providing the required filter and search data. So that Performance Data and Cost Data can be displayed in Graphical way using Grafana. <br/> 
-                   &#8226 Developed a dashboard for the cloud instances usages and resources of different departments and its monthly savings forecast. Develop a Notification System to notify the application owner about their
-                   application resource and saving opportunity.To create more awarness for cost saving opportunity.<br/>
-                  </p>
-               </div>
-
-
-                <div class="twelve columns">
-
-                  <h3>Tata Health</h3>
-                  <p class="info">Associate Programmer<span>&bull;</span> <em class="date">Aug 2020 - Apr 2021</em></p>
-                  <p>
-                  &#8226 Worked with API teams which involved developing new features for the consumer and doctor-facing mobile applications and web platforms. <br/>
-                  &#8226 Optimize the  Reports Microservice (<b>Spring boot</b>) for Daily reports which led to a decrease in database load by 30% and build a new optimized logic for the cumulative reports. <br/>
-                   &#8226 Optimized the notification for medicine reminders by rewriting logic, which almost decreased the database load to negligible.<br/>
-                  </p>
-               </div>
-
-
-		 <div class="twelve columns">
-
-                  <h3>Veratech Intelligence Private Limited</h3>
-                  <p class="info">Software Development Intern<span>&bull;</span> <em class="date">May 2019 - July 2019</em></p>
-                  <p>
-                    &#8226 Worked on YoloV3 Model for Captcha Detection. Captcha Dataset mainly contains the numbers. Achieved the
-		             accuracy of 99% on test dataset.<br/>
-		             &#8226 Created a python package of tool kit,which contains the machine learning model and database helper for Web
-		             Scraping Script.This package can be installed using pip.  <br/>
-                  </p>
-               </div>
-
-               <div class="twelve columns">
-
-                  <h3>Coding Ninjas</h3>
-                  <p class="info">Data Science Intern<span>&bull;</span> <em class="date">Jan 2019 - May 2019</em></p>
-                  <p>
-                     &#8226 Scraped the restaurant data using Zomato API and done Exploratory data analysis on the dataset and built a
-			            Restaurant Rating prediction using this dataset to achieve a accuracy of 92% .<br/>
-                     &#8226 Built a InstaBot which scrape a data from Instagram(i.e photos,attributes,captions) using Selenium and created a
-			            dataset of it.</br>
-                  </p>
-               </div>
-
-            </div> <!-- item end -->
-
-         </div> <!-- main-col end -->
-
-      </div> <!-- End Work -->
-
-
-      <!-- RESEARCH 
-       -------------------------------------  -->
-       
-        <div class="row research">
-
-         <div class="three columns header-col">
-            <h1><span>Research</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-            <div class="row item">
-
-
-               <div class="twelve columns">
-
-                  <h2>Prediction and forecast for COVID-19 Outbreak in India based on Enhanced Epidemiological Models 2020. 
-                   <a href="https://ieeexplore.ieee.org/abstract/document/9183126">Link</a> </h2><br/>
-                    
-
-               </div>
-
-            </div> <!-- item end -->
-
-         </div> <!-- main-col end -->
-
-      </div> <!-- End Research -->      
-
-
-
-      <!-- ACHIEVEMENTS
-      ----------------------------------------------- -->
-      <div class="row achievement">
-
-         <div class="three columns header-col">
-            <h1><span>ACHIEVEMENTS</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3>Winner, Dishathon 2018 : <a href="https://github.com/vaibhavkumar11/Dash-And-Dots">Github</a> </h3>
-                  <h4>Media Coverage :-
-                     <a href="https://www.zeebiz.com/companies/news-team-git-init-from-dtu-wins-dish-a-thon-in-broadcasting-industrys-first-ever-hackathon-52697">Zee.biz,</a>
-                     <a href="https://www.india.com/hindi-news/india-hindi/dish-tv-india-concludes-grand-finale-of-broadcasting-industries-hackathon-3132335/">India.com,</a>
-                     <a href="https://www.bollywoodlife.com/news-gossip/dishtv-india-concludes-grand-finale-of-me-and-broadcasting-industrys-first-ever-hackathon-1232384//">Bollywoodlife.com,</a>
-                     <a href="https://twitter.com/IncubateIND/status/1010846736389214208?s=20">Twitter</a></h4>
-                  <p>
-                    &#8226 Adjudged as the best team for the development of DotsDash application amongst 100
-                     teams from all over the nation.<br/>
-                  </p>
-               </div>
-
-               <div class="twelve columns">
-
-                  <h3>National Runner Up Award for Best Visualizations EXL EQ 2019 : <a href="https://github.com/Siddharth-Singhs/EXL">Github</a></h3>
-                  <p>
-                     &#8226 A data analytic-cum-case study competition organized by EXL Analytics in which student from top 20 universities(IITs,NITs,BIT,NSIT,DTU) across India participated.</br>
-                  </p>
-                </div>
-
-                <div class="twelve columns">
-
-                  <h3>Finalist,Smart India Hackathon 2018 : <a href="https://github.com/himanshuladia/sih2k18">Github</a></h3>
-                  <p>
-                     &#8226 Was among the top 15 teams at the finals under the Department of ISRO among 1500 teams from all over India.</br>
-                  </p>
-                </div>
-
-             </div> <!-- item end -->
-
-         </div> <!-- main-col end -->
-
-      </div> <!-- End Work -->
-
-
-      <!-- Skills
-      ----------------------------------------------- -->
-      <div class="row skill">
-
-         <div class="three columns header-col">
-            <h1><span>Skills</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-				<div class="bars">
-
-				   <ul class="skills">
-					   <li><span class="bar-expand cplusplus"></span><em>Java</em></li>
-                  <li><span class="bar-expand cplusplus"></span><em>Android</li>
-                     <li><span class="bar-expand cplusplus"></span><em>Machine Learning</em></li>
-                  <li><span class="bar-expand cplusplus"></span><em>Python</em></li>
-                  <li><span class="bar-expand python"></span><em>Computer Vision</li>
-					   <li><span class="bar-expand python"></span><em>Git/Github</em></li>
-
-				    </ul>
-
-				</div><!-- end skill-bars -->
-
-			</div> <!-- main-col end -->
-
-      </div> <!-- End skills -->
-
-   </section> <!-- Resume Section End-->
-
-
-   <!-- Portfolio Section
-   ================================================== -->
-   <section id="portfolio">
-
-      <div class="row">
-
-         <div class="twelve columns collapsed">
-
-            <h1>Check Out Some of My Projects.</h1>
-
-            <!-- portfolio-wrapper -->
-            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
-
-          	   <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-01" title="">
-                        <img alt="" src="images/portfolio/alzmate.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Alzmate</h5>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-02" title="">
-                        <img alt="" src="images/portfolio/village.jpeg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Gram Panchayat Adoption Advisor</h5>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-03" title="">
-                        <img alt="" src="images/portfolio/dotandash.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Dot and Dash</h5>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-04" title="">
-                        <img alt="" src="images/portfolio/drome.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Drome</h5>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-            </div> <!-- portfolio-wrapper end -->
-
-         </div> <!-- twelve columns end -->
-
-
-         <!-- Modal Popup
-	      --------------------------------------------------------------- -->
-
-         <div id="modal-01" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/alzmate.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Alzmate</h4>
-			      <p>
-               &#8226 A personal health care application for people suffering from Alzheimer disease. The main focus is to help them remind of people they have met before like friends,relatives.</br>
-               &#8226 The application reminds of important events, medication timings, which are fed into the application by the caretaker.</br>
-            </p>
-               <span class="categories"><i class="fa fa-tag"></i>Computer Vision, Android</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="https://github.com/Siddharth-Singhs/Alzmate_Support">Github</a>
-               <a href="https://www.youtube.com/watch?v=b9r9glfo1QU">CareTaker Video</a>
-               <a href="https://www.youtube.com/watch?v=P6E-DmgpfmI">Patient Video</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-01 End -->
-
-         <div id="modal-02" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-village.jpeg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Gram Panchayat Adoption Advisor</h4>
-			      <p>
-                  &#8226 Analyzed tabular and geospatial data from Indian Space Research Organization to develop different metrics for ranking individual villages of the country. </br>
-                  &#8226 Used KMeans clustering method to discover villages which share similar set of problems.</br>
-                  &#8226 Developed an android application to allow regular citizens of the country to adopt villages and work on their improvement.</br>
-               </p>
-               <span class="categories"><i class="fa fa-tag"></i>Data Analysis, Machine Learning, Android</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="https://github.com/himanshuladia/sih2k18">Github</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-02 End -->
-
-         <div id="modal-03" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/dotandash.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Dot and Dash</h4>
-			      <p>
-                  &#8226 An android application use computer vision to detect eye blink of a user and to play the corresponding TV channel.</br>
-                  &#8226 It detect the short and long blink of eye and convert into binary system and afterward it decode the Morse code and
-                  send to the Firebase.</br>
-               </p>
-               <span class="categories"><i class="fa fa-tag"></i>Computer Vision, Android</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="https://github.com/vaibhavkumar11/Dash-And-Dots">Github</a>
-               <a href="https://www.youtube.com/watch?v=ZKA1DxjNaAc">Youtube</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-03 End -->
-
-         <div id="modal-04" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/drome.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Drome</h4>
-			      <p>
-               &#8226 Disaster Rescue Operation Made Easy(DROME) is an Emergency response System which is built with an initiative to prevent loss of lifes during any disaster.</br>
-               &#8226 An Android app is used to collect data from users. Their data is sent to the website which is specifically designed for only authorized personnel who are going to carry out the rescue operation.</br>
-               &#8226 Location of users are tracked in the app to provide more accurate information. If network is available in the cell phones, then the user will be asked whether they are safe at their current location or not which is going to decide the priority of operation.</br>
-               </p>
-               <span class="categories"><i class="fa fa-tag"></i>Android, Azure, Firebase</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="https://github.com/kunaldeep28/mshack">Github</a>
-               <a href="https://youtu.be/sjrjRmRZBII">Youtube</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-04 End -->
-
-      </div> <!-- row End -->
-
-
-
-
-   </section> <!-- Portfolio Section End-->
-
-
-
-
-   <!-- Contact Section
-   ================================================== -->
-   <section id="contact">
-
-         <div class="row section-head">
-
-            <div class="two columns header-col">
-
-               <h1><span>Get In Touch.</span></h1>
-
-            </div>
-
-            <div class="ten columns">
-
-                  <p class="lead">Feel free to contact me at siddharthsingh16aug@gmail.com . I'll get back to you as soon as possible.
-                  </p>
-
-            </div>
-
-         </div>
-
-   </section> <!-- Contact Section End-->
-
-
-   <!-- footer
-   ================================================== -->
-   <footer>
-
-      <div class="row">
-
-         <div class="twelve columns">
-
-            <ul class="social-links">
-              <li><a href="https://github.com/Siddharth-Singhs/"><i class="fa fa-github"></i></a></li>
-               <li><a href="https://www.linkedin.com/in/siddharth-singh-67261314a/"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="https://www.facebook.com/siddharth.c.singh"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="https://twitter.com/sid_knight_dark/"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="https://www.instagram.com/siddharth_singh_s/"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-
-            <ul class="copyright">
-               <li>&copy; Copyright 2021 Siddharth Singh</li>
-            </ul>
-
-         </div>
-
-         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
-
+    </div>
+
+    <div class="exp-e">
+      <div><div class="exp-co">Expedia Group</div><div class="exp-dt">Apr 2021 – Jun 2024</div><div class="exp-lo">Gurugram · Travel Tech</div></div>
+      <div>
+        <div class="exp-role">Software Engineer I → II</div>
+        <ul class="exp-pts">
+          <li><b>Certificate management platform (SDE II):</b> Go app for enterprise TLS/SSL cert lifecycle over Venafi — expiry tracking, owner notifications, cost-center grouping. Reduced legacy tooling load by <b>60%</b>.</li>
+          <li><b>Cloud cost optimization (SDE II):</b> Integrated AWS Compute Optimizer into Spring Boot service. Benchmarked against legacy engine and rolled out saving alerts to all application owners.</li>
+          <li><b>AWS resource scanner (SDE I):</b> Spring Boot service scanning EC2, EBS, RDS, ECS across accounts; surfaced mathematical-model-based resource recommendations.</li>
+          <li><b>Grafana data source (SDE I):</b> Custom Grafana data source microservice federating queries across heterogeneous databases for Performance Engineering.</li>
+        </ul>
+        <div class="tech-r"><span class="tt">Go</span><span class="tt">Java / Spring Boot</span><span class="tt">AWS</span><span class="tt">Venafi</span><span class="tt">Grafana</span><span class="tt">PostgreSQL</span></div>
       </div>
+    </div>
 
-   </footer> <!-- Footer End-->
+    <div class="exp-e">
+      <div><div class="exp-co">Tata Health</div><div class="exp-dt">Aug 2020 – Apr 2021</div><div class="exp-lo">Bangalore · HealthTech</div></div>
+      <div>
+        <div class="exp-role">Associate Programmer</div>
+        <ul class="exp-pts">
+          <li>Developed features for consumer and doctor-facing mobile apps and web platforms.</li>
+          <li>Optimized Reports Microservice (Spring Boot) — reduced DB load by <b>30%</b>. Rewrote medicine reminder logic, cutting DB load to near-zero.</li>
+        </ul>
+        <div class="tech-r"><span class="tt">Java / Spring Boot</span><span class="tt">MySQL</span><span class="tt">REST APIs</span></div>
+      </div>
+    </div>
 
-   <!-- Java Script
-   ================================================== -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
-   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+    <div class="exp-e">
+      <div><div class="exp-co">Veratech Intelligence</div><div class="exp-dt">May – Jul 2019</div><div class="exp-lo">Internship</div></div>
+      <div>
+        <div class="exp-role">ML Engineering Intern</div>
+        <ul class="exp-pts">
+          <li>Trained YOLOv3 model for CAPTCHA detection — <b>99% accuracy</b> on test set.</li>
+          <li>Published a Python pip package with ML model + database helpers for web scraping pipelines.</li>
+        </ul>
+        <div class="tech-r"><span class="tt">Python</span><span class="tt">YOLOv3</span><span class="tt">Computer Vision</span></div>
+      </div>
+    </div>
 
-   <script src="js/jquery.flexslider.js"></script>
-   <script src="js/waypoints.js"></script>
-   <script src="js/jquery.fittext.js"></script>
-   <script src="js/magnific-popup.js"></script>
-   <script src="js/init.js"></script>
+  </div>
+</div>
+
+<div class="elig-wrap" id="eligibility">
+  <div class="elig-inner">
+    <div class="sec-hd"><span class="sec-title">Work Eligibility &amp; Relocation</span></div>
+    <p class="elig-desc">I am actively seeking opportunities in Europe and fully prepared to relocate. I qualify for skilled worker visa applications across the EU and UK and welcome employer sponsorship.</p>
+    <div class="elig-g">
+      <div class="elig-c"><div class="elig-ic y">✓</div><div><div class="elig-lab">Visa sponsorship</div><div class="elig-val">Open to EU Blue Card, UK Skilled Worker, and equivalent employer-sponsored visas.</div></div></div>
+      <div class="elig-c"><div class="elig-ic y">✓</div><div><div class="elig-lab">Relocation readiness</div><div class="elig-val">Available to relocate within 4–8 weeks of accepted offer. Flexible on location.</div></div></div>
+      <div class="elig-c"><div class="elig-ic i">EN</div><div><div class="elig-lab">Language</div><div class="elig-val">English — professional fluency (spoken &amp; written). Sole working language throughout career.</div></div></div>
+      <div class="elig-c"><div class="elig-ic i">↗</div><div><div class="elig-lab">Preferred locations</div><div class="elig-val">Germany · Netherlands · Ireland · UK · Sweden · Denmark · Switzerland</div></div></div>
+      <div class="elig-c"><div class="elig-ic y">✓</div><div><div class="elig-lab">Remote / hybrid / on-site</div><div class="elig-val">Open to all arrangements. Comfortable with async collaboration across time zones.</div></div></div>
+      <div class="elig-c"><div class="elig-ic i">↔</div><div><div class="elig-lab">Notice period</div><div class="elig-val">Negotiable. Happy to discuss start dates during the interview process.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="projects">
+  <div class="sec-hd"><span class="sec-title">Projects</span><span class="sec-ct">4 projects</span></div>
+  <div class="proj-g">
+    <div class="proj-c"><div class="proj-lab">Healthcare · Computer Vision</div><div class="proj-name">Alzmate</div><div class="proj-desc">Alzheimer's care app using face recognition to help patients identify people in their life. Caretakers can set medication reminders and event alerts.</div><div class="proj-ft"><div class="proj-tags"><span class="proj-tag">Android</span><span class="proj-tag">CV</span></div><a class="proj-lnk" href="https://github.com/Siddharth-Singhs/Alzmate_Support" target="_blank">GitHub ↗</a></div></div>
+    <div class="proj-c"><div class="proj-lab">IoT · Hackathon Winner</div><div class="proj-name">Dot and Dash</div><div class="proj-desc">Eye-blink Morse code system converting short/long blinks to TV channel commands via Firebase. Winner at Dishathon 2018 among 100 teams nationwide.</div><div class="proj-ft"><div class="proj-tags"><span class="proj-tag">Android</span><span class="proj-tag">Firebase</span><span class="proj-tag">CV</span></div><a class="proj-lnk" href="https://github.com/vaibhavkumar11/Dash-And-Dots" target="_blank">GitHub ↗</a></div></div>
+    <div class="proj-c"><div class="proj-lab">Data Science · ISRO</div><div class="proj-name">Gram Panchayat Advisor</div><div class="proj-desc">KMeans clustering on ISRO geospatial data to rank Indian villages by development need. Android app for citizens to adopt and track village improvements.</div><div class="proj-ft"><div class="proj-tags"><span class="proj-tag">ML</span><span class="proj-tag">Android</span></div><a class="proj-lnk" href="https://github.com/himanshuladia/sih2k18" target="_blank">GitHub ↗</a></div></div>
+    <div class="proj-c"><div class="proj-lab">Emergency Tech · Azure</div><div class="proj-name">DROME</div><div class="proj-desc">Disaster rescue system with real-time user location tracking and safety status reporting. Web dashboard for authorized rescue personnel. Built on Azure + Firebase.</div><div class="proj-ft"><div class="proj-tags"><span class="proj-tag">Android</span><span class="proj-tag">Azure</span><span class="proj-tag">Firebase</span></div><a class="proj-lnk" href="https://github.com/kunaldeep28/mshack" target="_blank">GitHub ↗</a></div></div>
+  </div>
+</div>
+
+<div class="sec" id="research" style="padding-top:0">
+  <div class="sec-hd"><span class="sec-title">Research</span></div>
+  <div class="res-c">
+    <div class="res-badge">IEEE</div>
+    <div>
+      <div class="res-title">Prediction and Forecast for COVID-19 Outbreak in India Based on Enhanced Epidemiological Models</div>
+      <div class="res-meta">Published · IEEE 2020 &nbsp;·&nbsp; <a href="https://ieeexplore.ieee.org/abstract/document/9183126" target="_blank">View on IEEEXplore ↗</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="achievements" style="padding-top:0">
+  <div class="sec-hd"><span class="sec-title">Awards &amp; Achievements</span></div>
+  <div class="ach-list">
+    <div class="ach-i"><div class="ach-n">01</div><div><div class="ach-title">Winner — Dishathon 2018 (National Hackathon)</div><div class="ach-desc">Best team among 100 teams nationwide at broadcasting industry's first-ever hackathon by DishTV. Covered by Zee Business, India.com, Bollywood Life.</div><div class="ach-links"><a class="ach-lnk" href="https://www.zeebiz.com/companies/news-team-git-init-from-dtu-wins-dish-a-thon-in-broadcasting-industrys-first-ever-hackathon-52697" target="_blank">Zee Business</a><a class="ach-lnk" href="https://github.com/vaibhavkumar11/Dash-And-Dots" target="_blank">GitHub</a></div></div></div>
+    <div class="ach-i"><div class="ach-n">02</div><div><div class="ach-title">National Runner-Up + Best Visualizations — EXL EQ 2019</div><div class="ach-desc">Data analytics competition by EXL Analytics — participants from top 20 universities including IITs, NITs, and DTU.</div><div class="ach-links"><a class="ach-lnk" href="https://github.com/Siddharth-Singhs/EXL" target="_blank">GitHub</a></div></div></div>
+    <div class="ach-i"><div class="ach-n">03</div><div><div class="ach-title">Finalist — Smart India Hackathon 2018</div><div class="ach-desc">Top 15 teams nationally under ISRO department, out of 1500+ teams from across India.</div><div class="ach-links"><a class="ach-lnk" href="https://github.com/himanshuladia/sih2k18" target="_blank">GitHub</a></div></div></div>
+  </div>
+</div>
+
+<div class="sec" id="education" style="padding-top:0">
+  <div class="sec-hd"><span class="sec-title">Education</span></div>
+  <div class="edu-list">
+    <div class="edu-i"><div class="edu-yr">2016 – 2020</div><div><div class="edu-school">Delhi Technological University (DTU)</div><div class="edu-deg">Bachelor of Engineering in Engineering Physics</div><div class="edu-grade">GPA: 7.88 / 10.0</div></div></div>
+    <div class="edu-i"><div class="edu-yr">– 2016</div><div><div class="edu-school">Holy Convent Senior Secondary School</div><div class="edu-deg">Senior Secondary — Science</div><div class="edu-grade">89%</div></div></div>
+  </div>
+</div>
+
+<div class="sec" id="contact" style="padding-top:0">
+  <div class="sec-hd"><span class="sec-title">Get in Touch</span></div>
+  <div class="contact-g">
+    <div>
+      <div class="contact-head">Open to new roles in Europe.</div>
+      <div class="contact-sub">Available for Senior / Staff Backend Engineer positions. Happy to discuss relocation support, visa sponsorship, and start dates directly.</div>
+      <div class="clinks">
+        <a class="cl" href="mailto:siddharthsingh16aug@gmail.com"><span class="cl-ico">✉</span>siddharthsingh16aug@gmail.com</a>
+        <a class="cl" href="https://www.linkedin.com/in/siddharth-singh-67261314a/" target="_blank"><span class="cl-ico">in</span>linkedin.com/in/siddharth-singh</a>
+        <a class="cl" href="https://github.com/Siddharth-Singhs/" target="_blank"><span class="cl-ico">⌥</span>github.com/Siddharth-Singhs</a>
+        <a class="cl" href="https://siddharth-singhs.github.io" target="_blank"><span class="cl-ico">↗</span>siddharth-singhs.github.io</a>
+      </div>
+    </div>
+    <div class="cdet">
+      <div class="cd"><div class="cd-lab">Location</div><div class="cd-val">New Delhi, India</div></div>
+      <div class="cd"><div class="cd-lab">Current role</div><div class="cd-val">Engineering Lead · Pluang</div></div>
+      <div class="cd"><div class="cd-lab">Open to</div><div class="cd-val">Senior / Staff Backend Engineer · Europe</div></div>
+      <div class="cd"><div class="cd-lab">Visa eligibility</div><div class="cd-val">EU Blue Card · UK Skilled Worker · equivalents</div></div>
+      <div class="cd"><div class="cd-lab">Research</div><div class="cd-val"><a href="https://ieeexplore.ieee.org/abstract/document/9183126" target="_blank">IEEE Published Author →</a></div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="fc">© 2026 Siddharth Singh · New Delhi, India</div>
+  <div class="flinks">
+    <a href="https://github.com/Siddharth-Singhs/" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/siddharth-singh-67261314a/" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com/sid_knight_dark/" target="_blank">Twitter</a>
+  </div>
+</footer>
 
 </body>
-
 </html>
